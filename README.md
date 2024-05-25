@@ -1,2 +1,1 @@
-# freshcells-fe-task
-Freshcells Frontend Task
+# Freshcells Frontend Task
