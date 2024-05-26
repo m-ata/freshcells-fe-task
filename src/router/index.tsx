@@ -13,11 +13,17 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={login} element={<LoginPage />} />
         <Route path={home} element={<Layout />}>
-        <Route path={account} element={<ProtectedRoute component={<AccountPage />} />} />
+          <Route path={login} element={<LoginPage />} />
+          <Route
+            path={account}
+            element={<ProtectedRoute component={<AccountPage />} />}
+          />
         </Route>
-        <Route path="*" element={<ProtectedRoute component={<AccountPage />} />} />
+        <Route
+          path="*"
+          element={<ProtectedRoute component={<AccountPage />} />}
+        />
       </Routes>
     </BrowserRouter>
   );

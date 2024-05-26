@@ -1,0 +1,104 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+
+  .login-sub-container {
+    width: 65%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 8px;
+    }
+
+    .header {
+      margin-bottom: 32px;
+
+      h2 {
+        @include label(32px, $secondary-text, 700);
+        white-space: pre-line;
+      }
+    }
+    form {
+      .input-group {
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+
+        label {
+          @include label(14px, 20px);
+          color: $secondary-text;
+        }
+        input {
+          @include label(14px, 20px);
+          font-family: 'Open Sans', sans-serif;
+          box-sizing: border-box;
+          cursor: text;
+          display: inline-flex;
+          align-items: center;
+          width: 100%;
+          position: relative;
+          color: $secondary-text;
+          border-radius: 6px;
+          padding: 12px;
+          border: 2px solid $secondary-border;
+        }
+        .user-icon,
+        .password-icon {
+          position: relative;
+          bottom: 39px;
+          height: 25px;
+          width: 25px;
+          left: 95%;
+          border-style: none;
+          background: transparent;
+        }
+      }
+      .submit-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        outline: 0px;
+        border: 0px;
+        margin: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+        transition:
+          background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        width: 100%;
+        text-transform: none;
+        font-weight: 600;
+        border-radius: 6px;
+        box-shadow: none;
+        min-width: unset;
+        background-color: $primary-background;
+        color: $tertiary-text;
+        white-space: nowrap;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        padding: 12px 16px;
+        pointer-events: auto;
+
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.8;
+        }
+
+        &:hover {
+          background-color: $primary-hover;
+        }
+      }
+    }
+  }
+}
