@@ -4,5 +4,5 @@ export const  PUBLIC_ROUTES = {
 };
 
 export const  PRIVATE_ROUTES = {
-  account: '/account',
+  account: '/account/:userId',
 };

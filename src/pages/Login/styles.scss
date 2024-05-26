@@ -27,8 +27,7 @@
         width: 100%;
 
         label {
-          @include label(14px, 20px);
-          color: $secondary-text;
+          @include label(14px, $secondary-text);
         }
         input {
           @include label(14px, 20px);
@@ -43,6 +42,10 @@
           border-radius: 6px;
           padding: 12px;
           border: 2px solid $secondary-border;
+        }
+        span {
+          @include label(12px, $quaternary-text, 400, nowrap);
+          margin-top: -16px;
         }
         .user-icon,
         .password-icon {
@@ -63,7 +66,7 @@
         box-sizing: border-box;
         outline: 0px;
         border: 0px;
-        margin: 0px;
+        margin: 8px 0px;
         cursor: pointer;
         user-select: none;
         vertical-align: middle;
@@ -89,6 +92,11 @@
         letter-spacing: 0.1px;
         padding: 12px 16px;
         pointer-events: auto;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
 
         &.disabled {
           pointer-events: none;
