@@ -1,13 +1,10 @@
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { PUBLIC_ROUTES } from '@/constants';
+import { RouteProps } from '@interfaces/routes.interface';
 
-interface ProtectedRouteProps {
-  component: ReactElement;
-}
-
-const ProtectedRoute: FC<ProtectedRouteProps> = ({ component }) => {
+const ProtectedRoute: FC<RouteProps> = ({ component }) => {
   const { isAuthenticated } = useAuth();
   const { login } = PUBLIC_ROUTES;
 
