@@ -11,4 +11,8 @@
     @include label(20px, $primary-text, 700);
     padding: 0 8px;
   }
+  .lang-logout-container {
+    display: flex;
+    align-items: center;
+  }
 }

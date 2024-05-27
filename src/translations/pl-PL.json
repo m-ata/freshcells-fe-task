@@ -1,0 +1,16 @@
+{
+    "_page.login.heading": "Zaloguj się na swoje konto",
+    "_page.login.form.input.email": "E-mail",
+    "_page.login.form.input.password": "Hasło",
+    "_page.login.form.error.password.required": "Wymagane jest hasło",
+    "_page.login.form.error.email.required": "Email jest wymagany",
+    "_page.login.form.error.email.invalid": "Niepoprawny adres email",
+    "_page.login.form.button.login": "Zaloguj sie",
+    "_page.account.heading": "Informacje o koncie",
+    "_page.account.field.firstName": "Imię",
+    "_page.account.field.lastName": "Nazwisko",
+    "_component.header.heading": "Zadanie Freshcell",
+    "_component.languageDropdown.english": "Angielski",
+    "_component.languageDropdown.german": "Niemiecki",
+    "_component.languageDropdown.polish": "Polski"
+}

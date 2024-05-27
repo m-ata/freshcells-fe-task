@@ -2,12 +2,13 @@ import { useForm } from 'react-hook-form';
 import emailIcon from '/public/icons/email.svg';
 import eyeOffIcon from '/public/icons/eye-off.svg';
 import spinner from '/public/gifs/spinner.svg';
-import { LoginFormInputs } from '@/interfaces/auth.interface';
+import { LoginFormInputs } from '@interfaces/auth.interface';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/context/AuthContext/useAuth';
+import { useAuth } from '@hooks/useAuth';
+import { useFormatMessage } from '@hooks/useFormatMessage';
 import { useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '@/graphql/auth/mutations';
-// import styles
+// import login styles
 import './styles.scss';
 
 const LoginPage = () => {
@@ -18,7 +19,10 @@ const LoginPage = () => {
   } = useForm<LoginFormInputs>();
   const [login, { loading }] = useMutation(LOGIN_MUTATION);
   const { setJwtToken } = useAuth();
+  const formatMessage = useFormatMessage();
   const navigate = useNavigate();
+
+  // Login submit handler
   const onSubmit = async (inputs: LoginFormInputs) => {
     try {
       const response = await login({
@@ -37,18 +41,25 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="login-sub-container">
         <div className="header">
-          <h2> Login to your account </h2>
+          <h2> {formatMessage({ id: '_page.login.heading' })} </h2>
           <div className="underline-title" />
         </div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
-            <label>Email</label>
+            <label>
+              {' '}
+              {formatMessage({ id: '_page.login.form.input.email' })}{' '}
+            </label>
             <input
               {...register('identifier', {
-                required: 'Email is required',
+                required: formatMessage({
+                  id: '_page.login.form.error.email.required',
+                }),
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Invalid email address',
+                  message: formatMessage({
+                    id: '_page.login.form.error.email.invalid',
+                  }),
                 },
               })}
             />
@@ -56,10 +67,17 @@ const LoginPage = () => {
             {errors.identifier && <span>{errors.identifier.message}</span>}
           </div>
           <div className="input-group">
-            <label>Password</label>
+            <label>
+              {' '}
+              {formatMessage({ id: '_page.login.form.input.password' })}{' '}
+            </label>
             <input
               type="password"
-              {...register('password', { required: 'Password is required' })}
+              {...register('password', {
+                required: formatMessage({
+                  id: '_page.login.form.error.password.required',
+                }),
+              })}
             />
             <button className="password-icon" type="button">
               <img src={eyeOffIcon} alt="eye" />
@@ -73,7 +91,14 @@ const LoginPage = () => {
             type="submit"
             name="submit"
           >
-            {loading ? <img src={spinner} alt="eye" /> : <span>Login</span>}
+            {loading ? (
+              <img src={spinner} alt="eye" />
+            ) : (
+              <span>
+                {' '}
+                {formatMessage({ id: '_page.login.form.button.login' })}{' '}
+              </span>
+            )}
           </button>
         </form>
       </div>
