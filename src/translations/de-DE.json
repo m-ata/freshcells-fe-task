@@ -12,5 +12,9 @@
     "_component.header.heading": "Freshcell Aufgabe",
     "_component.languageDropdown.english": "Englisch",
     "_component.languageDropdown.german": "Deutsch",
-    "_component.languageDropdown.polish": "Polieren"
+    "_component.languageDropdown.polish": "Polieren",
+    "_component.logoutModal.heading": "Ausloggen",
+    "_component.logoutModal.message": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "_component.confirmModal.button.cancel": "Stornieren",
+    "_component.confirmModal.button.apply": "Anwenden"
 }
