@@ -1,0 +1,16 @@
+{
+    "_page.login.heading": "Login to your account",
+    "_page.login.form.input.email": "Email",
+    "_page.login.form.input.password": "Password",
+    "_page.login.form.error.password.required": "Password is required",
+    "_page.login.form.error.email.required": "Email is required",
+    "_page.login.form.error.email.invalid": "Invalid email address",
+    "_page.login.form.button.login": "Login",
+    "_page.account.heading": "Account Information",
+    "_page.account.field.firstName": "First Name",
+    "_page.account.field.lastName": "Last Name",
+    "_component.header.heading": "Freshcell Task",
+    "_component.languageDropdown.english": "English",
+    "_component.languageDropdown.german": "German",
+    "_component.languageDropdown.polish": "Polish"
+}
