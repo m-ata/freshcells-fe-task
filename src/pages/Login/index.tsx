@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { ApolloError, useMutation } from '@apollo/client';
+
+import { extractErrorMessage } from '@/utils/extractError.util';
 import emailIcon from '/public/icons/email.svg';
 import eyeOffIcon from '/public/icons/eye-off.svg';
 import spinner from '/public/gifs/spinner.svg';
 import { LoginFormInputs } from '@interfaces/auth.interface';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@hooks/useAuth';
 import { useFormatMessage } from '@hooks/useFormatMessage';
-import { useMutation } from '@apollo/client';
 import { LOGIN_MUTATION } from '@/graphql/auth/mutations';
 // import login styles
 import './styles.scss';
@@ -21,9 +24,11 @@ const LoginPage = () => {
   const { setJwtToken } = useAuth();
   const formatMessage = useFormatMessage();
   const navigate = useNavigate();
+  const [apiError, setApiError] = useState<string | null>(null);
 
   // Login submit handler
   const onSubmit = async (inputs: LoginFormInputs) => {
+    setApiError(null);
     try {
       const response = await login({
         variables: { identifier: inputs.identifier, password: inputs.password },
@@ -34,7 +39,8 @@ const LoginPage = () => {
         navigate(`/account/${user.id}`);
       }
     } catch (err) {
-      console.error(err);
+      const errorMessage = extractErrorMessage(err as ApolloError);
+      setApiError(errorMessage);
     }
   };
   return (
@@ -50,20 +56,23 @@ const LoginPage = () => {
               {' '}
               {formatMessage({ id: '_page.login.form.input.email' })}{' '}
             </label>
-            <input
-              {...register('identifier', {
-                required: formatMessage({
-                  id: '_page.login.form.error.email.required',
-                }),
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: formatMessage({
-                    id: '_page.login.form.error.email.invalid',
+            <div className="input-container">
+              <input
+                autoComplete="off"
+                {...register('identifier', {
+                  required: formatMessage({
+                    id: '_page.login.form.error.email.required',
                   }),
-                },
-              })}
-            />
-            <img className="user-icon" src={emailIcon} alt="username-icon" />
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: formatMessage({
+                      id: '_page.login.form.error.email.invalid',
+                    }),
+                  },
+                })}
+              />
+              <img className="user-icon" src={emailIcon} alt="username-icon" />
+            </div>
             {errors.identifier && <span>{errors.identifier.message}</span>}
           </div>
           <div className="input-group">
@@ -71,17 +80,19 @@ const LoginPage = () => {
               {' '}
               {formatMessage({ id: '_page.login.form.input.password' })}{' '}
             </label>
-            <input
-              type="password"
-              {...register('password', {
-                required: formatMessage({
-                  id: '_page.login.form.error.password.required',
-                }),
-              })}
-            />
-            <button className="password-icon" type="button">
-              <img src={eyeOffIcon} alt="eye" />
-            </button>
+            <div className="input-container">
+              <input
+                type="password"
+                {...register('password', {
+                  required: formatMessage({
+                    id: '_page.login.form.error.password.required',
+                  }),
+                })}
+              />
+              <button className="password-icon" type="button">
+                <img src={eyeOffIcon} alt="eye" />
+              </button>
+            </div>
             {errors.password && <span>{errors.password.message}</span>}
           </div>
 
@@ -100,6 +111,7 @@ const LoginPage = () => {
               </span>
             )}
           </button>
+          {apiError && <div className="api-error-message">{apiError}</div>}
         </form>
       </div>
     </div>

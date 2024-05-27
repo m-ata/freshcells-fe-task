@@ -1,61 +1,75 @@
 .login-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 75px);
+  background-image: url('/public/images/login.jpeg');
+  background-size: cover;
+  background-position: center;
 
   .login-sub-container {
-    width: 65%;
-
-    @media (max-width: 768px) {
+    margin: 16px;
+    @media (max-width: 767px) {
       width: 100%;
       margin: 8px;
     }
 
     .header {
-      margin-bottom: 32px;
+      display: flex;
+      justify-content: center;
 
       h2 {
         @include label(32px, $secondary-text, 700);
         white-space: pre-line;
+        @media screen and (max-width: 767px) {
+          font-size: 24px;
+        }
       }
     }
     form {
       .input-group {
         display: inline-flex;
         flex-direction: column;
+        gap: 4px;
         width: 100%;
+        margin-top: 8px;
 
         label {
           @include label(14px, $secondary-text);
         }
-        input {
-          @include label(14px, 20px);
-          font-family: 'Open Sans', sans-serif;
-          box-sizing: border-box;
-          cursor: text;
-          display: inline-flex;
+        .input-container {
+          position: relative;
+          display: flex;
           align-items: center;
           width: 100%;
-          position: relative;
-          color: $secondary-text;
-          border-radius: 6px;
-          padding: 12px;
-          border: 2px solid $secondary-border;
+          input {
+            @include label(14px);
+            font-family: 'Open Sans', sans-serif;
+            box-sizing: border-box;
+            cursor: text;
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            color: $secondary-text;
+            border-radius: 6px;
+            padding: 12px;
+            border: 2px solid $secondary-border;
+          }
+
+          .user-icon,
+          .password-icon {
+            position: absolute;
+            height: 25px;
+            width: 25px;
+            right: 12px;
+            border-style: none;
+            background: transparent;
+          }
         }
         span {
           @include label(12px, $quaternary-text, 400, nowrap);
           margin-top: -16px;
-        }
-        .user-icon,
-        .password-icon {
-          position: relative;
-          bottom: 39px;
-          height: 25px;
-          width: 25px;
-          left: 95%;
-          border-style: none;
-          background: transparent;
         }
       }
       .submit-btn {
@@ -106,6 +120,9 @@
         &:hover {
           background-color: $primary-hover;
         }
+      }
+      .api-error-message {
+        @include label(12px, $quaternary-text, 400, nowrap);
       }
     }
   }
