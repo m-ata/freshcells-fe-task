@@ -4,15 +4,21 @@
   align-items: center;
   width: 100%;
   min-height: 50px;
-  border-bottom: 2px solid $secondary-border;
-  background: $secondary-background;
 
-  .heading {
-    @include label(20px, $primary-text, 700);
-    padding: 0 8px;
+  .logo {
+    padding: 16px;
+    @media screen and (max-width: 767px) {
+      img {
+        width: 150px;
+        height: auto;
+      }
+    }
   }
   .lang-logout-container {
     display: flex;
     align-items: center;
+    button {
+      background-color: transparent;
+    }
   }
 }

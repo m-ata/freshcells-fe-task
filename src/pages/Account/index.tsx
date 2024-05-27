@@ -16,14 +16,22 @@ const AccountPage = () => {
 
   return (
     <div className="account-page">
-      <h2> {formatMessage({ id: '_page.account.heading' })} </h2>
-      <div className="account-field">
-        <label> {formatMessage({ id: '_page.account.field.firstName' })} </label>
-        <input type="text" value={user?.firstName || ''} readOnly />
-      </div>
-      <div className="account-field">
-        <label> {formatMessage({ id: '_page.account.field.firstName' })} </label>
-        <input type="text" value={user?.lastName || ''} readOnly />
+      <div className="container">
+        <h2> {formatMessage({ id: '_page.account.heading' })} </h2>
+        <div className="account-field">
+          <label>
+            {' '}
+            {formatMessage({ id: '_page.account.field.firstName' })}{' '}
+          </label>
+          <input type="text" value={user?.firstName || ''} readOnly />
+        </div>
+        <div className="account-field">
+          <label>
+            {' '}
+            {formatMessage({ id: '_page.account.field.lastName' })}{' '}
+          </label>
+          <input type="text" value={user?.lastName || ''} readOnly />
+        </div>
       </div>
     </div>
   );

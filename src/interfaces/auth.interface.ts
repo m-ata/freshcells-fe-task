@@ -1,15 +1,6 @@
-import { ReactNode } from "react";
-
 export interface LoginFormInputs {
   identifier: string;
   password: string;
-}
-
-export interface Auth {
-  jwt: string;
-  user: {
-    id: string;
-  };
 }
 
 export interface AuthContextType {
@@ -20,5 +11,15 @@ export interface AuthContextType {
 }
 
 export interface AuthProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
+}
+
+export interface GraphQLErrorExtension {
+  exception?: {
+    data?: {
+      data?: {
+        messages?: { message: string }[];
+      }[];
+    }
+  };
 }
