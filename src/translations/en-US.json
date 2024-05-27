@@ -12,5 +12,9 @@
     "_component.header.heading": "Freshcell Task",
     "_component.languageDropdown.english": "English",
     "_component.languageDropdown.german": "German",
-    "_component.languageDropdown.polish": "Polish"
+    "_component.languageDropdown.polish": "Polish",
+    "_component.logoutModal.heading": "Logout",
+    "_component.logoutModal.message": "Are you sure you want to logout?",
+    "_component.confirmModal.button.cancel": "Cancel",
+    "_component.confirmModal.button.apply": "Apply"
 }

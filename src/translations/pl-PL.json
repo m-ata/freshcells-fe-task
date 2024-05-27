@@ -12,5 +12,9 @@
     "_component.header.heading": "Zadanie Freshcell",
     "_component.languageDropdown.english": "Angielski",
     "_component.languageDropdown.german": "Niemiecki",
-    "_component.languageDropdown.polish": "Polski"
+    "_component.languageDropdown.polish": "Polski",
+    "_component.logoutModal.heading": "Wyloguj",
+    "_component.logoutModal.message": "Czy na pewno chcesz się wylogować?",
+    "_component.confirmModal.button.cancel": "Anulować",
+    "_component.confirmModal.button.apply": "Stosować"
 }

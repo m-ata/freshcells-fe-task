@@ -11,3 +11,25 @@
   font-weight: $font-weight;
   color: $color;
 }
+
+@mixin controlButtons($backgroundColor, $color, $hover, $borderColor) {
+  background-color: $backgroundColor;
+  color: $color;
+  border: 1px solid $borderColor;
+  &:hover {
+    background-color: $hover;
+  }
+}
+
+@mixin horizontalLine(
+  $borderColor: $secondary-border,
+  $marginTop: 1px,
+  $borderWidth: 1px,
+  $height: 1px
+) {
+  display: block;
+  height: $height;
+  border: 0;
+  border-top: $borderWidth solid $borderColor;
+  margin-top: $marginTop;
+}
