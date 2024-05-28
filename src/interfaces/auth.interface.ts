@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export interface LoginFormInputs {
   identifier: string;
   password: string;
@@ -5,9 +6,10 @@ export interface LoginFormInputs {
 
 export interface AuthContextType {
   isAuthenticated: boolean;
-  // eslint-disable-next-line no-unused-vars
   setJwtToken: (jwt: string) => void;
   logout: () => void;
+  setUserId: (userId: string) => void;
+  getUserId: () => string | null;
 }
 
 export interface AuthProviderProps {

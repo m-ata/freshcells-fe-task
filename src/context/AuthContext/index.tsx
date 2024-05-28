@@ -16,6 +16,14 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     setIsAuthenticated(false);
   };
 
+  const setUserId = (userId: string) => {
+    localStorage.setItem('userId', userId);
+  };
+
+  const getUserId = () => {
+    return localStorage.getItem('userId');
+  };
+
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
@@ -24,7 +32,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   }, [localStorage.getItem('jwt')]);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setJwtToken, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, setJwtToken, logout, setUserId, getUserId }}>
       {children}
     </AuthContext.Provider>
   );

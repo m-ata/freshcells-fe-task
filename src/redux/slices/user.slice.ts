@@ -7,7 +7,7 @@ type InitialState = {
 
 const initialState: InitialState = {
   user: {
-    id: 0,
+    id: localStorage.getItem('userId') || '',
     firstName: '',
     lastName: '',
   },
