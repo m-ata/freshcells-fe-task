@@ -1,8 +1,9 @@
+import { useState } from 'react';
+//custom imports
 import logoutIcon from '/public/icons/logout.svg';
 import logo from '/public/images/logo.svg';
 import { useAuth } from '@/hooks/useAuth';
 import LanguageDropdown from '../LanguageDropdown';
-import { useState } from 'react';
 import { LogoutModal } from '../LogoutModal';
 //import header styles
 import './styles.scss';
@@ -10,10 +11,13 @@ import './styles.scss';
 export const Header = () => {
   const { isAuthenticated, logout } = useAuth();
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
+
+  // close logout modal and logout from context
   const handleLogout = () => {
     setShowLogoutModal(false);
     logout();
   };
+
   return (
     <header className="app-header">
       <div className="logo">

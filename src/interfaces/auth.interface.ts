@@ -22,6 +22,6 @@ export interface GraphQLErrorExtension {
       data?: {
         messages?: { message: string }[];
       }[];
-    }
+    };
   };
 }

@@ -1,5 +1,3 @@
-// utils/errorUtils.ts
-
 import { GraphQLErrorExtension } from '@interfaces/auth.interface';
 import { ApolloError } from '@apollo/client';
 
