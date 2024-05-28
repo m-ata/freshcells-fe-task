@@ -21,7 +21,7 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm<LoginFormInputs>();
   const [login, { loading }] = useMutation(LOGIN_MUTATION);
-  const { setJwtToken } = useAuth();
+  const { setJwtToken, setUserId } = useAuth();
   const formatMessage = useFormatMessage();
   const navigate = useNavigate();
   const [apiError, setApiError] = useState<string | null>(null);
@@ -36,6 +36,7 @@ const LoginPage = () => {
       if (response?.data?.login) {
         const { jwt, user } = response.data.login;
         setJwtToken(jwt);
+        setUserId(user.id);
         navigate(`/account/${user.id}`);
       }
     } catch (err) {

@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../constants';
 import ProtectedRoute from './protectedRoutes';
 import { Layout } from '@/layout/Layout';
@@ -14,6 +14,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path={home} element={<Navigate to={login} />} />
         <Route path={home} element={<Layout />}>
           <Route
             path={login}
