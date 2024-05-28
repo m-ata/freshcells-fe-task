@@ -1,19 +1,20 @@
-import { LanguageConfig } from "@/interfaces/language.interface";
-import germanLocales from "../translations/de-DE.json";
-import englishLocales from "../translations/en-US.json";
-import polishLocales from "../translations/pl-PL.json";
+import { LanguageConfig } from '@/interfaces/language.interface';
+import germanLocales from '../translations/de-DE.json';
+import englishLocales from '../translations/en-US.json';
+import polishLocales from '../translations/pl-PL.json';
+
 // all available languages
 const config: Record<string, LanguageConfig> = {
   de: {
-    code: "de-DE",
+    code: 'de-DE',
     locale: germanLocales,
   },
   en: {
-    code: "en-US",
+    code: 'en-US',
     locale: englishLocales,
   },
   pl: {
-    code: "pl-PL",
+    code: 'pl-PL',
     locale: polishLocales,
   },
 };
@@ -21,7 +22,8 @@ const config: Record<string, LanguageConfig> = {
 /**
  * Helper function to return language from above config
  *
- * @param {*} language
+ * @param language as string
+ * @returns language config
  */
 export const getLanguageConfig = (language: string): LanguageConfig => {
   const lang = language?.substring(0, 2);

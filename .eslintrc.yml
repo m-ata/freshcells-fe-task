@@ -1,20 +1,20 @@
 env:
   browser: true
   es2023: true
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 plugins:
-  - "@typescript-eslint"
-  - "react"
-  - "react-refresh"
+  - '@typescript-eslint'
+  - 'react'
+  - 'react-refresh'
 extends:
   [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
   ]
 parserOptions:
   ecmaVersion: 2023
-  sourceType: "module"
+  sourceType: 'module'
   ecmaFeatures:
     tsx: true
 rules:
